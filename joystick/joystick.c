@@ -7,14 +7,10 @@
 #include "matriz/neopixel_pio.h"
 #include "conexao/pico_w_wifi.h"
 
-// #define LED_B 12
-// #define LED_R 13
-// #define LED_G 11
-#define SW 22  // Pino do Botão do Joystick
 #define VRY 26 // Porta ADC de variação do Y do Joystick
 #define VRX 27 // Porta ADC de variação do X do joystick
 
-#define DEAD_ZONE 30
+#define DEAD_ZONE 30 // Zona morta do joystick.
 #define JOY_CENTER_X 2170 // Valor central medido do eixo X
 #define JOY_CENTER_Y 2040 // Valor central medido do eixo Y
 
@@ -38,10 +34,6 @@ void setup_joystick()
   adc_gpio_init(VRX); // Configura o pino VRX (eixo X) para entrada ADC
   adc_gpio_init(VRY); // Configura o pino VRY (eixo Y) para entrada ADC
 
-  // Inicializa o pino do botão do joystick
-  gpio_init(SW);             // Inicializa o pino do botão
-  gpio_set_dir(SW, GPIO_IN); // Configura o pino do botão como entrada
-  gpio_pull_up(SW);          // Ativa o pull-up no pino do botão para evitar flutuações
 }
 
 // Função de configuração geral
